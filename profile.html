@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudFashion | Profile</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      margin: 0;
+    }
+
+    .profile-section {
+      max-width: 600px;
+      margin: 3rem auto;
+      background: #fff0f6;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .profile-section h2 {
+      text-align: center;
+      color: #ff2e7a;
+      margin-bottom: 1.5rem;
+    }
+
+    .profile-section input {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.3s;
+    }
+
+    .profile-section input:focus {
+      border-color: #ff2e7a;
+    }
+
+    .profile-section button {
+      width: 100%;
+      background: linear-gradient(90deg, #ff8eb0, #ff2e7a);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-bottom: 10px;
+    }
+
+    .profile-section button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(255, 46, 122, 0.3);
+    }
+
+    .logout-btn {
+      background: #ddd !important;
+      color: #222 !important;
+      font-weight: 500;
+    }
+
+    .logout-btn:hover {
+      background: #bbb !important;
+    }
+  </style>
+</head>
+<body onload="loadProfile()">
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">☁️ CloudFashion</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="cart.html">View Cart</a></li>
+        <li><a href="profile.html" class="active">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Profile Section -->
+  <section class="profile-section">
+    <h2>My Profile</h2>
+
+    <input type="text" id="profileName" placeholder="Full Name">
+    <input type="email" id="profileEmail" placeholder="Email">
+    <input type="text" id="profileMobile" placeholder="Mobile Number">
+    
+
+    <button id="saveProfileBtn">Save Profile</button>
+    <button id="logoutBtn" class="logout-btn">Logout</button>
+  </section>
+
+  <script>
+    function loadProfile() {
+      const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+      if (!loggedInUser) {
+        alert("⚠️ Please login to access your profile.");
+        window.location.href = "login.html";
+        return;
+      }
+
+      // Load data into input fields
+      document.getElementById("profileName").value = loggedInUser.name || "";
+      document.getElementById("profileEmail").value = loggedInUser.email || "";
+      document.getElementById("profileMobile").value = loggedInUser.mobile || "";
+      
+    }
+
+    document.getElementById("saveProfileBtn").addEventListener("click", function () {
+      const name = document.getElementById("profileName").value.trim();
+      const email = document.getElementById("profileEmail").value.trim();
+      const mobile = document.getElementById("profileMobile").value.trim();
+      
+
+      if (!name || !email || !mobile) {
+        alert("⚠️ Please fill all fields before saving!");
+        return;
+      }
+
+      // Update loggedInUser in localStorage
+      const updatedProfile = { name, email, mobile };
+      localStorage.setItem("loggedInUser", JSON.stringify(updatedProfile));
+
+      // Also update in users list
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const userIndex = users.findIndex(u => u.email === email);
+      if (userIndex !== -1) {
+        users[userIndex] = updatedProfile;
+        localStorage.setItem("users", JSON.stringify(users));
+      }
+
+      alert("✅ Profile updated successfully!");
+    });
+
+    document.getElementById("logoutBtn").addEventListener("click", function () {
+      localStorage.removeItem("loggedInUser");
+      alert("👋 You’ve been logged out!");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>

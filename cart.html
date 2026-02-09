@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CloudFashion | Cart</title>
+
+  <!-- Main Theme CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="logo">☁️ CloudFashion</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="cart.html" class="active">View Cart</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ================= CART SECTION ================= -->
+  <section class="cart-section">
+
+    <!-- Cart Header -->
+    <div class="cart-header">
+      <h2>Your Shopping Cloud</h2>
+      <p class="cart-subtitle">
+        Review your selected styles before placing the order
+      </p>
+    </div>
+
+    <!-- Empty Cart Message -->
+    <div id="empty-cart" class="empty-cart">
+      <p>🛒 Your cloud is empty</p>
+      <a href="menu.html" class="btn">Shop Now</a>
+    </div>
+
+    <!-- Cart Items -->
+    <div id="cart-items"></div>
+    <h3 id="total-price"></h3>
+
+    <!-- ================= ORDER FORM ================= -->
+    <div class="order-form">
+      <h3>✨ Delivery Details</h3>
+
+      <div class="form-row">
+        <input type="text" id="orderName" placeholder="Full Name" required />
+        <input type="tel" id="orderMobile" placeholder="Mobile Number" required />
+      </div>
+
+      <textarea
+        id="orderAddress"
+        placeholder="Complete Delivery Address"
+        required
+      ></textarea>
+
+      <div class="form-row">
+        <select id="paymentMethod" required>
+          <option value="">Choose Payment Method</option>
+          <option value="COD">Cash on Delivery</option>
+          <option value="UPI">UPI</option>
+        </select>
+      </div>
+
+      <button type="button" class="btn cart-btn" onclick="placeOrder()">
+        🛒 Place Order Securely
+      </button>
+    </div>
+
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <p>☁️ CloudFashion © 2025 | Powered by Dhanasree</p>
+  </footer>
+
+  <!-- ================= SCRIPT ================= -->
+  <script src="script.js"></script>
+
+</body>
+</html>

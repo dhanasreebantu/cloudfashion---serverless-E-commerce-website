@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudFashion | Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(120deg, #ffe6eb, #fff0f6);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      background: #fff;
+      width: 400px;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(255, 46, 122, 0.15);
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .logo {
+      font-size: 2rem;
+      color: #ff2e7a;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .input-group {
+      text-align: left;
+      margin-bottom: 1.2rem;
+    }
+
+    label {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #ff2e7a;
+    }
+
+    .login-btn {
+      width: 100%;
+      background: linear-gradient(90deg, #ff8eb0, #ff2e7a);
+      border: none;
+      color: white;
+      padding: 12px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 0.5rem;
+    }
+
+    .login-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(255, 46, 122, 0.3);
+    }
+
+    .link {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .link a {
+      color: #ff2e7a;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <div class="logo">☁️ CloudFashion</div>
+    <h2>Welcome Back</h2>
+    <p style="color:#777; margin-bottom:1.5rem;">Login to continue shopping</p>
+
+    <div class="input-group">
+      <label>Email</label>
+      <input type="email" id="loginEmail" placeholder="Enter your email">
+    </div>
+
+    <div class="input-group">
+      <label>Password</label>
+      <input type="password" id="loginPassword" placeholder="Enter your password">
+    </div>
+
+    <button class="login-btn" onclick="loginUser()">Login</button>
+
+    <div class="link">
+      Don’t have an account? <a href="register.html">Register here</a>
+    </div>
+  </div>
+
+  <script>
+    function loginUser() {
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value.trim();
+
+      if (!email || !password) {
+        alert("⚠️ Please enter both email and password!");
+        return;
+      }
+
+      const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+      const user = storedUsers.find(u => u.email === email && u.password === password);
+
+      if (user) {
+        localStorage.setItem('loggedInUser', JSON.stringify(user));
+        alert("✅ Login successful! Welcome back to CloudFashion 💖");
+        window.location.href = "index.html";
+      } else {
+        alert("❌ Invalid email or password! Please try again.");
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { DynamoDBDocumentClient, PutCommand } from "@aws-sdk/lib-dynamodb";
+import { randomUUID } from "crypto";
+
+const client = new DynamoDBClient({ region: "ap-south-1" });
+const dynamoDB = DynamoDBDocumentClient.from(client);
+
+export const handler = async (event) => {
+  try {
+    const data = JSON.parse(event.body);
+
+    const order = {
+      orderId: randomUUID(),
+      name: data.name,
+      mobile: data.mobile,
+      address: data.address,
+      payment: data.payment,
+      items: data.items,
+      total: data.total,
+      status: "PLACED",
+      createdAt: new Date().toISOString()
+    };
+
+    await dynamoDB.send(
+      new PutCommand({
+        TableName: "cloudfashion",
+        Item: order
+      })
+    );
+
+    return {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      },
+      body: JSON.stringify({
+        message: "Order placed successfully",
+        orderId: order.orderId
+      })
+    };
+
+  } catch (error) {
+    return {
+      statusCode: 500,
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      },
+      body: JSON.stringify({
+        error: error.message
+      })
+    };
+  }
+};

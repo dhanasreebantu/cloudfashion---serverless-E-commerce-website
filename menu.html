@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudFashion | Menu</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .menu { padding: 3rem 5%; }
+    .menu h2 { text-align: center; margin-bottom: 2rem; color: #222; }
+    .category-section { margin-bottom: 4rem; }
+    .category-title {
+      font-size: 1.8rem;
+      margin: 1rem 0;
+      color: #ff7096;
+      border-bottom: 2px solid #ffe6eb;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+    }
+    .product-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display:block;
+    }
+    .product-info {
+      text-align: center;
+      padding: 0.8rem 0.9rem 1rem 0.9rem;
+    }
+    .product-info p {
+      margin: 0.35rem 0;
+      font-weight: 500;
+      color: #333;
+    }
+    .price {
+      color: #ff7096;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    /* Pink Add-to-Cart Button (keeps your theme) */
+    .add-to-cart {
+      background-color: #ff7096; /* soft pink */
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      box-shadow: 0 2px 6px rgba(255,112,150,0.25);
+      margin-top: 6px;
+    }
+    .add-to-cart:hover {
+      background-color: #ff4d7d; /* darker pink on hover */
+      transform: scale(1.04);
+      box-shadow: 0 6px 14px rgba(255,77,125,0.28);
+    }
+
+    /* Small responsive tweak so button doesn't overflow tiny cards */
+    .product-info .add-to-cart { width: auto; display: inline-block; }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">☁️ CloudFashion</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html" class="active">Menu</a></li>
+        <li><a href="cart.html">View Cart</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="menu">
+    <h2>🛍️ Explore Categories</h2>
+
+    <!-- Tops -->
+    <div class="category-section">
+      <h3 class="category-title">Tops</h3>
+      <div class="product-grid">
+
+        <div class="product-card">
+          <img src="images\top1.jpg" alt="Floral Top">
+          <div class="product-info">
+            <p>Floral Top</p>
+            <p class="price">₹789</p>
+            <button type="button" class="add-to-cart" data-name="Floral Top" data-price="789" data-img="images\top1.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\top5.jpg" alt="Half Shoulder Top">
+          <div class="product-info">
+            <p>Half Shoulder Top</p>
+            <p class="price">₹599</p>
+            <button type="button" class="add-to-cart" data-name="Half Shoulder Top" data-price="599" data-img="images\top5.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\top2.jpg" alt="Top">
+          <div class="product-info">
+            <p>Top</p>
+            <p class="price">₹899</p>
+            <button type="button" class="add-to-cart" data-name="Top" data-price="899" data-img="images\top2.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\top3.jpg" alt="Short Top">
+          <div class="product-info">
+            <p>Short Top</p>
+            <p class="price">₹699</p>
+            <button type="button" class="add-to-cart" data-name="Short Top" data-price="699" data-img="images\top3.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+<div class="product-card">
+          <img src="images\tops6.jpg" alt="Short Top">
+          <div class="product-info">
+            <p>Short Top</p>
+            <p class="price">₹659</p>
+            <button type="button" class="add-to-cart" data-name="Short Top" data-price="659" data-img="images\tops6.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+<div class="product-card">
+          <img src="images\top7.jpg" alt="Short Top">
+          <div class="product-info">
+            <p>Short Top</p>
+            <p class="price">₹499</p>
+            <button type="button" class="add-to-cart" data-name="Short Top" data-price="499" data-img="images\top7.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+<div class="product-card">
+          <img src="images\top8.jpg" alt="Short Top">
+          <div class="product-info">
+            <p>Short Top</p>
+            <p class="price">₹599</p>
+            <button type="button" class="add-to-cart" data-name="Short Top" data-price="599" data-img="images\top8.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\top4.jpg" alt="Full Top">
+          <div class="product-info">
+            <p>Full Top</p>
+            <p class="price">₹799</p>
+            <button type="button" class="add-to-cart" data-name="Full Top" data-price="799" data-img="images\top4.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dresses -->
+    <div class="category-section">
+      <h3 class="category-title">Dresses</h3>
+      <div class="product-grid">
+
+        <div class="product-card">
+          <img src="images\dress1.jpg" alt="Dress">
+          <div class="product-info">
+            <p>Dress</p>
+            <p class="price">₹979</p>
+            <button type="button" class="add-to-cart" data-name="Dress" data-price="979" data-img="images\dress1.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\dress2.jpg" alt="Black Bodycon">
+          <div class="product-info">
+            <p>Black Bodycon</p>
+            <p class="price">₹699</p>
+            <button type="button" class="add-to-cart" data-name="Black Bodycon" data-price="699" data-img="images\dress2.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\dress3.jpg" alt="White Top">
+          <div class="product-info">
+            <p>White Top</p>
+            <p class="price">₹1099</p>
+            <button type="button" class="add-to-cart" data-name="White Top" data-price="1099" data-img="images\dress3.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\dree4.jpg" alt="Bodycon">
+          <div class="product-info">
+            <p>Bodycon</p>
+            <p class="price">₹789</p>
+            <button type="button" class="add-to-cart" data-name="Bodycon" data-price="789" data-img="images\dree4.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\dress5.jpg" alt="Dress">
+          <div class="product-info">
+            <p>Dress</p>
+            <p class="price">₹655</p>
+            <button type="button" class="add-to-cart" data-name="Dress" data-price="655" data-img="images\dress5.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+<div class="product-card">
+          <img src="images\dress6.jpg" alt="Long Frock">
+          <div class="product-info">
+            <p>Long Frock</p>
+            <p class="price">₹799</p>
+            <button type="button" class="add-to-cart" data-name="Long Frock" data-price="799" data-img="images\dress6.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+<div class="product-card">
+          <img src="images\dress7.jpg" alt="Frock">
+          <div class="product-info">
+            <p>Frock</p>
+            <p class="price">₹699</p>
+            <button type="button" class="add-to-cart" data-name="Frock" data-price="699" data-img="images\dress7.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+<div class="product-card">
+          <img src="images\dress8.jpg" alt="Frock">
+          <div class="product-info">
+            <p>Frock</p>
+            <p class="price">₹599</p>
+            <button type="button" class="add-to-cart" data-name="Frock" data-price="599" data-img="images\dress8.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Accessories -->
+    <div class="category-section">
+      <h3 class="category-title">Accessories</h3>
+      <div class="product-grid">
+
+        <div class="product-card">
+          <img src="images\acc1.jpg" alt="Studs">
+          <div class="product-info">
+            <p>Studs</p>
+            <p class="price">₹379</p>
+            <button type="button" class="add-to-cart" data-name="Studs" data-price="379" data-img="images\acc1.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\acc2.jpg" alt="Chain">
+          <div class="product-info">
+            <p>Chain</p>
+            <p class="price">₹299</p>
+            <button type="button" class="add-to-cart" data-name="Chain" data-price="299" data-img="images\acc2.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\acc3.jpg" alt="Stone Chain">
+          <div class="product-info">
+            <p>Stone Chain</p>
+            <p class="price">₹999</p>
+            <button type="button" class="add-to-cart" data-name="Stone Chain" data-price="999" data-img="images\acc3.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\acc4.jpg" alt="Ear Ring">
+          <div class="product-info">
+            <p>Ear Ring</p>
+            <p class="price">₹799</p>
+            <button type="button" class="add-to-cart" data-name="Ear Ring" data-price="799" data-img="images\acc4.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\acc5.jpg" alt="Ear Ring">
+          <div class="product-info">
+            <p>Ear Ring</p>
+            <p class="price">₹699</p>
+            <button type="button" class="add-to-cart" data-name="Ear Ring" data-price="699" data-img="images\acc5.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+<div class="product-card">
+          <img src="images\acc6.jpg" alt="Braclet">
+          <div class="product-info">
+            <p>Braclet</p>
+            <p class="price">₹399</p>
+            <button type="button" class="add-to-cart" data-name="Braclet" data-price="399" data-img="images\acc6.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+<div class="product-card">
+          <img src="images\acc7.jpg" alt="Braclet">
+          <div class="product-info">
+            <p>Braclet</p>
+            <p class="price">₹299</p>
+            <button type="button" class="add-to-cart" data-name="Ear Ring" data-price="299" data-img="images\acc7.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+<div class="product-card">
+          <img src="images\acc8.jpg" alt="Bow">
+          <div class="product-info">
+            <p>Bow</p>
+            <p class="price">₹99</p>
+            <button type="button" class="add-to-cart" data-name="Bow" data-price="99" data-img="images\acc8.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Bottoms -->
+    <div class="category-section">
+      <h3 class="category-title">Bottoms</h3>
+      <div class="product-grid">
+
+        <div class="product-card">
+          <img src="images\bottom1.jpg" alt="Bottom Pant">
+          <div class="product-info">
+            <p>Bottom Pant</p>
+            <p class="price">₹1999</p>
+            <button type="button" class="add-to-cart" data-name="Bottom Pant" data-price="1999" data-img="images\bottom1.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\bottom2.jpg" alt="Bottom">
+          <div class="product-info">
+            <p>Bottom</p>
+            <p class="price">₹599</p>
+            <button type="button" class="add-to-cart" data-name="Bottom" data-price="599" data-img="images\bottom2.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\bottom3.jpg" alt="Jeans Pant">
+          <div class="product-info">
+            <p>Jeans Pant</p>
+            <p class="price">₹599</p>
+            <button type="button" class="add-to-cart" data-name="Jeans Pant" data-price="599" data-img="imagesbottom3.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\bottom4.jpg" alt="Straight Pant">
+          <div class="product-info">
+            <p>Straight Pant</p>
+            <p class="price">₹699</p>
+            <button type="button" class="add-to-cart" data-name="Straight Pant" data-price="699" data-img="images\bottom4.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\bottom5.jpg" alt="Pant">
+          <div class="product-info">
+            <p>Pant</p>
+            <p class="price">₹899</p>
+            <button type="button" class="add-to-cart" data-name="Pant" data-price="899" data-img="images\bottom5.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+<div class="product-card">
+          <img src="images\bottom6.jpg" alt="Pant">
+          <div class="product-info">
+            <p>Pant</p>
+            <p class="price">₹799</p>
+            <button type="button" class="add-to-cart" data-name="Pant" data-price="799" data-img="images\bottom6.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+<div class="product-card">
+          <img src="images\bottom7.jpg" alt="Pant">
+          <div class="product-info">
+            <p>Pant</p>
+            <p class="price">₹699</p>
+            <button type="button" class="add-to-cart" data-name="Pant" data-price="699" data-img="images\bottom7.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+<div class="product-card">
+          <img src="images\bottom8.jpg" alt="Pant">
+          <div class="product-info">
+            <p>Pant</p>
+            <p class="price">₹599</p>
+            <button type="button" class="add-to-cart" data-name="Pant" data-price="599" data-img="images\bottom8.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bags -->
+    <div class="category-section">
+      <h3 class="category-title">Bags</h3>
+      <div class="product-grid">
+
+        <div class="product-card">
+          <img src="images\bag1.jpg" alt="Slim Bag">
+          <div class="product-info">
+            <p>Slim Bag</p>
+            <p class="price">₹1500</p>
+            <button type="button" class="add-to-cart" data-name="Slim Bag" data-price="1500" data-img="images\bag1.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\bag2.jpg" alt="Bag">
+          <div class="product-info">
+            <p>Bag</p>
+            <p class="price">₹1499</p>
+            <button type="button" class="add-to-cart" data-name="Bag" data-price="1499" data-img="images\bag2.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\bag3.jpg" alt="Red Bag">
+          <div class="product-info">
+            <p>Red Bag</p>
+            <p class="price">₹1329</p>
+            <button type="button" class="add-to-cart" data-name="Red Bag" data-price="1329" data-img="images\bag3.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\bag4.jpg" alt="U Bag">
+          <div class="product-info">
+            <p>U Bag</p>
+            <p class="price">₹1459</p>
+            <button type="button" class="add-to-cart" data-name="U Bag" data-price="1459" data-img="images\bag4.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <img src="images\bag5.jpg" alt="Tote Bag">
+          <div class="product-info">
+            <p>Tote Bag</p>
+            <p class="price">₹1299</p>
+            <button type="button" class="add-to-cart" data-name="Tote Bag" data-price="1299" data-img="images\bag5.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+<div class="product-card">
+          <img src="images\bag6.jpg" alt="Tote Bag">
+          <div class="product-info">
+            <p>Tote Bag</p>
+            <p class="price">₹1599</p>
+            <button type="button" class="add-to-cart" data-name="Tote Bag" data-price="1599" data-img="images\bag6.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+<div class="product-card">
+          <img src="images\bag7.jpg" alt="Tote Bag">
+          <div class="product-info">
+            <p>Tote Bag</p>
+            <p class="price">₹799</p>
+            <button type="button" class="add-to-cart" data-name="Tote Bag" data-price="799" data-img="images\bag7.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+<div class="product-card">
+          <img src="images\bags.jpg" alt="Bags">
+          <div class="product-info">
+            <p>Bags</p>
+            <p class="price">₹1599</p>
+            <button type="button" class="add-to-cart" data-name="Tote Bag" data-price="1599" data-img="images\bags.jpg">Add to Cart</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>☁️ CloudFashion © 2025 | powered by Dhanasree</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // attach add-to-cart handlers (works with your existing script.js addToCart function)
+    document.querySelectorAll(".add-to-cart").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const name = btn.dataset.name;
+        const price = btn.dataset.price;
+        const img = btn.dataset.img;
+        // call your addToCart function (assumed available in script.js)
+        if (typeof addToCart === "function") {
+          addToCart(name, price, img);
+        } else {
+          // fallback: store in localStorage if addToCart not defined
+          const item = { name, price, image: img };
+          const cart = JSON.parse(localStorage.getItem("cart")) || [];
+          cart.push(item);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          alert(`${name} added to cart`);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

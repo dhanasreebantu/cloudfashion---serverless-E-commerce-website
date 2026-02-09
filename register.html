@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudFashion | Register</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(120deg, #ffe6eb, #fff0f6);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .register-container {
+      background: #fff;
+      width: 420px;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(255, 46, 122, 0.15);
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .logo {
+      font-size: 2rem;
+      color: #ff2e7a;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      color: #333;
+      font-weight: 600;
+    }
+
+    .input-group {
+      text-align: left;
+      margin-bottom: 1.2rem;
+    }
+
+    label {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #ff2e7a;
+    }
+
+    .register-btn {
+      width: 100%;
+      background: linear-gradient(90deg, #ff8eb0, #ff2e7a);
+      border: none;
+      color: white;
+      padding: 12px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 0.5rem;
+    }
+
+    .register-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(255, 46, 122, 0.3);
+    }
+
+    .link {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .link a {
+      color: #ff2e7a;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="register-container">
+    <div class="logo">☁️ CloudFashion</div>
+    <h2>Create Your Account</h2>
+    <p style="color:#777; margin-bottom:0.1rem;"></p>
+
+    <div class="input-group">
+      <label>Full Name</label>
+      <input type="text" id="regName" placeholder="Enter your full name">
+    </div>
+
+    <div class="input-group">
+      <label>Email</label>
+      <input type="email" id="regEmail" placeholder="Enter your email">
+    </div>
+
+    <div class="input-group">
+      <label>Mobile Number</label>
+      <input type="text" id="regMobile" placeholder="Enter your mobile number">
+    </div>
+
+    <div class="input-group">
+      <label>Password</label>
+      <input type="password" id="regPassword" placeholder="Create a password">
+    </div>
+
+    <button class="register-btn" onclick="registerUser()">Register</button>
+
+    <div class="link">
+      Already have an account? <a href="login.html">Login here</a>
+    </div>
+  </div>
+
+  <script>
+    function registerUser() {
+      const name = document.getElementById('regName').value.trim();
+      const email = document.getElementById('regEmail').value.trim();
+      const mobile = document.getElementById('regMobile').value.trim();
+      const password = document.getElementById('regPassword').value.trim();
+
+      if (!name || !email || !mobile || !password) {
+        alert("⚠️ Please fill in all the details!");
+        return;
+      }
+
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+
+      // check if user already exists
+      if (users.find(u => u.email === email)) {
+        alert("❌ Email already registered! Please login instead.");
+        return;
+      }
+
+      users.push({ name, email, mobile, password });
+      localStorage.setItem('users', JSON.stringify(users));
+
+      alert("✅ Registration successful! Please login to continue.");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
